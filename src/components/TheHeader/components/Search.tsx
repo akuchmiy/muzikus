@@ -1,17 +1,14 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react'
+import { FC, FormEvent } from 'react'
 import Input from '../../UI/Input'
 import Button, { ButtonSizes } from '../../UI/Button'
+import useInput from '../../../hooks/useInput'
 
 interface SearchProps {
   className: string
 }
 
 const Search: FC<SearchProps> = ({ className }) => {
-  const [search, setSearch] = useState<string>('')
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setSearch(e.currentTarget.value)
-  }
+  const [search, , handleSearchChange] = useInput('')
 
   function submitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -22,7 +19,7 @@ const Search: FC<SearchProps> = ({ className }) => {
     <form onSubmit={submitHandler} className={className}>
       <Input
         value={search}
-        onChange={handleChange}
+        onChange={handleSearchChange}
         label={'Search'}
         placeholder={'Search'}
         type={'text'}
