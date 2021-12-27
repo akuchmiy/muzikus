@@ -1,13 +1,11 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import MainLayout from '../layouts/Mainlayout'
-
-const Layouts = {
-  main: MainLayout,
-}
+import { useRouter } from 'next/router'
+import { getPageLayout } from '../constants/layouts'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const Layout = Layouts['main']
+  const router = useRouter()
+  const Layout = getPageLayout(router.route)
 
   return (
     <Layout>
