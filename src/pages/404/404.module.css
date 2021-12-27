@@ -1,0 +1,8 @@
+.invalid {
+    height: 100%;
+    text-align: center;
+}
+
+.invalid a {
+    text-decoration: underline;
+}

@@ -1,0 +1,9 @@
+:root {
+    --clr-bg-primary: hsl(210, 91%, 22%);
+    --hs-bg-primary: 210, 91%;
+
+    --clr-text-primary: hsl(147, 64%, 61%);
+    --hs-text-primary: 174, 64%;
+    --cls-text-secondary: hsl(84, 50%, 92%);
+    --hs-text-secondary: 84, 50%;
+}
