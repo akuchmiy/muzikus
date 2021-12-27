@@ -1,0 +1,47 @@
+
+.input[type="text"],
+.input[type="number"],
+.input[type="password"],
+.input[type="email"] {
+    padding: .6em;
+    font-size: inherit;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    color: var(--clr-text-primary);
+    outline: none;
+}
+
+.input::placeholder {
+    color: transparent;
+}
+
+.label {
+    position: relative;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: visible;
+    border-bottom: 2px solid var(--clr-text-primary);
+}
+
+.label span {
+    font-size: 1.3em;
+    position: absolute;
+    top: 50%;
+    left: .5em;
+
+    text-overflow: ellipsis;
+    pointer-events: none;
+    white-space: nowrap;
+
+    transform-origin: left;
+    transform: translateY(-50%);
+    transition: transform 300ms ease, left 300ms ease, top 300ms ease;
+}
+
+.label:focus-within span,
+.label.has-text span {
+    top: -0.5em;
+    left: 0;
+    transform: translateY(0) scale(0.5);
+}
