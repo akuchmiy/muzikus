@@ -2,10 +2,13 @@
     --clr-bg-primary: hsl(210, 91%, 22%);
     --clr-bg-secondary: hsl(210, 94%, 12%);
     --hs-bg-primary: 210, 91%;
+    --hs-bg-secondary: 210, 94%;
 
     /*--clr-text-primary: hsl(147, 64%, 61%);*/
     --clr-text-primary: hsl(189, 95%, 69%);
     --hs-text-primary: 174, 64%;
     --clr-text-secondary: hsl(84, 50%, 92%);
     --hs-text-secondary: 84, 50%;
+
+    --header-height: 60px;
 }

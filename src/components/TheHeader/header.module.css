@@ -1,22 +1,43 @@
 
 .header {
+    --gap: 1em;
     position: relative;
     display: flex;
     align-items: center;
-    height: 60px;
+    justify-content: space-between;
+    height: var(--header-height);
     padding: 10px;
     border-bottom: 2px solid var(--clr-text-primary);
-    gap: 1em;
+    gap: var(--gap);
+}
+
+.header > div:first-child {
+    display: flex;
+    gap: var(--gap);
 }
 
 .title {
+    display: none;
     position: relative;
     font-size: 2rem;
     text-shadow: 0 0 5px var(--clr-text-secondary), 0 0 10px var(--clr-text-primary);
 }
 
+@media (min-width: 580px) {
+    .title {
+        display: block;
+    }
+}
+
 .search {
+    font-size: 0.8em;
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: var(--gap);
+}
+
+@media (min-width: 580px) {
+    .search {
+        font-size: 1em;
+    }
 }

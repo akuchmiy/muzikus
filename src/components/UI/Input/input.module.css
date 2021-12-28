@@ -3,12 +3,13 @@
 .input[type="number"],
 .input[type="password"],
 .input[type="email"] {
-    padding: .6em;
+    padding: .8em .6em .2em;
     font-size: inherit;
     background-color: transparent;
     box-shadow: none;
-    border: none;
     color: var(--clr-text-primary);
+
+    border: none;
     outline: none;
 }
 
@@ -41,7 +42,7 @@
 
 .label:focus-within span,
 .label.has-text span {
-    top: -0.5em;
+    top: -0.2em;
     left: 0;
     transform: translateY(0) scale(0.5);
 }

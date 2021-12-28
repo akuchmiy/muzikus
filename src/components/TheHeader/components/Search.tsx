@@ -8,10 +8,11 @@ interface SearchProps {
 }
 
 const Search: FC<SearchProps> = ({ className }) => {
-  const [search, , handleSearchChange] = useInput('')
+  const [search, _, handleSearchChange] = useInput('')
 
   function submitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!search) return
     // TODO: query api and navigate to results
   }
 
@@ -20,8 +21,7 @@ const Search: FC<SearchProps> = ({ className }) => {
       <Input
         value={search}
         onChange={handleSearchChange}
-        label={'Search'}
-        placeholder={'Search'}
+        label={'Search music'}
         type={'text'}
       />
       <Button size={ButtonSizes.medium}>Search</Button>

@@ -9,6 +9,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Muzikus - The listening platform</title>
       </Head>
+      <div></div>
     </>
   )
 }
