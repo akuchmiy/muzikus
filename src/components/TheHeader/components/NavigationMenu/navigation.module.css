@@ -27,10 +27,13 @@
 .navigation {
     counter-reset: menu;
     --nav-width: 340px;
+
     position: absolute;
-    width: var(--nav-width);
     top: 100%;
     right: calc(var(--nav-width) * -1);
+    width: var(--nav-width);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
 
     background-color: hsl(var(--hs-bg-secondary), 12%, 0.4);
     border-left: 2px solid var(--clr-text-primary);
@@ -103,7 +106,8 @@
 }
 
 .navigation li:hover span::after {
-    content: " ● ";
+    content: "●";
+    margin: 0 0.5ch;
 }
 
 @keyframes text-flow {
