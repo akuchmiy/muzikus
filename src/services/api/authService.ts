@@ -19,14 +19,33 @@ class AuthService {
   public async login(user: UserDto): Promise<User> {
     try {
       const response = await this.post<UserWithCredentials>(`login`, user)
-      const { accessToken, ...rest } = response.data
 
-      localStorage.setItem('accessToken', accessToken)
-
-      return rest
+      return AuthService.saveToken(response.data)
     } catch (e: unknown) {
       throw new Error('Invalid email or password')
     }
+  }
+
+  public async refresh(): Promise<User> {
+    try {
+      const response = await this.post<UserWithCredentials>(`refresh`)
+
+      return AuthService.saveToken(response.data)
+    } catch (e: unknown) {
+      throw new Error('Please, log in again')
+    }
+  }
+
+  public static getToken() {
+    return localStorage.getItem('accessToken')
+  }
+
+  private static saveToken(user: UserWithCredentials): User {
+    const { accessToken, ...rest } = user
+
+    localStorage.setItem('accessToken', accessToken)
+
+    return rest
   }
 
   private async post<T>(

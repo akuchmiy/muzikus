@@ -2,22 +2,47 @@ import axios, { AxiosError } from 'axios'
 import TrackService from './trackService'
 import { ApiRoutes } from 'Constants/api'
 import AuthService from 'Services/api/authService'
+import Router from 'next/router'
 
-export const axiosApiInstance = axios.create({
+export const defaultApiInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
+  withCredentials: true,
+})
+
+export const authApiInstance = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  withCredentials: true,
 })
 
 const apiService = {
-  tracks: new TrackService(axiosApiInstance, ApiRoutes.tracks),
-  auth: new AuthService(axiosApiInstance, ApiRoutes.auth),
+  tracks: new TrackService(defaultApiInstance, ApiRoutes.tracks),
+  auth: new AuthService(authApiInstance, ApiRoutes.auth),
 }
 
-axiosApiInstance.interceptors.response.use(
+defaultApiInstance.interceptors.request.use((config) => {
+  const myHeaders = {
+    Authorization: `Bearer ${AuthService.getToken()}`,
+  }
+  Object.assign(config.headers, myHeaders)
+
+  return config
+})
+
+defaultApiInstance.interceptors.response.use(
   (response) => response,
-  function (error: AxiosError) {
+  async function (error: AxiosError) {
+    const originalRequestConfig = error.config
+
     if (error.response?.status === 401) {
-      // TODO: send refresh token to get access
-      return { data: null }
+      try {
+        await apiService.auth.refresh()
+      } catch (e: any) {
+        Router.push('/auth')
+
+        return { data: null }
+      }
+
+      return defaultApiInstance.request(originalRequestConfig)
     } else {
       return Promise.reject(error)
     }
