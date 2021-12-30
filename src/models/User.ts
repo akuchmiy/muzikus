@@ -7,3 +7,8 @@ export interface User {
 export type UserWithCredentials = User & {
   accessToken: string
 }
+
+export interface UserDto {
+  email: string
+  password: string
+}

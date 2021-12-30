@@ -11,6 +11,8 @@ module.exports = {
       Constants: path.resolve(__dirname, 'src/constants'),
       Services: path.resolve(__dirname, 'src/services'),
       Models: path.resolve(__dirname, 'src/models'),
+      Components: path.resolve(__dirname, 'src/components'),
+      Hooks: path.resolve(__dirname, 'src/hooks'),
     })
     return config
   },

@@ -1,0 +1,53 @@
+
+.auth {
+    --min-col-width: 320px;
+
+    width: clamp(var(--min-col-width), 70vw, 100%);
+    margin: 2em;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-col-width), 1fr));
+
+    box-shadow: 0 0 5px var(--clr-text-primary), 0 0 10px var(--clr-text-primary);
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 2em;
+    padding: 2em;
+
+    color: var(--clr-bg-secondary);
+    background-color: var(--clr-text-primary);
+}
+
+.left button {
+    font: inherit;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+
+    text-decoration: underline;
+    cursor: pointer;
+
+    transition: transform 200ms ease;
+}
+
+.left button:hover,
+.left button:focus {
+    outline: none;
+    transform: scale(1.1);
+}
+
+.right {
+    font-size: clamp(1em, 1.5vw, 1.3em);
+    padding: 2em;
+    border: 5px solid var(--clr-text-primary);
+}
+
+.right label {
+    width: clamp(100px, 100%, 250px);
+    display: block;
+    margin-bottom: 2em;
+}
