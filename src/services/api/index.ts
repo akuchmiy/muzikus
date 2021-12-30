@@ -1,13 +1,27 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import TrackService from './trackService'
-import { TRACKS_ENDPOINT } from 'Constants/api'
+import { ApiRoutes } from 'Constants/api'
+import AuthService from 'Services/api/authService'
 
 export const axiosApiInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 })
 
 const apiService = {
-  tracks: new TrackService(axiosApiInstance, TRACKS_ENDPOINT),
+  tracks: new TrackService(axiosApiInstance, ApiRoutes.tracks),
+  auth: new AuthService(axiosApiInstance, ApiRoutes.auth),
 }
+
+axiosApiInstance.interceptors.response.use(
+  (response) => response,
+  function (error: AxiosError) {
+    if (error.response?.status === 401) {
+      // TODO: send refresh token to get access
+      return { data: null }
+    } else {
+      return Promise.reject(error)
+    }
+  }
+)
 
 export default apiService

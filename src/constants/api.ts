@@ -1,1 +1,4 @@
-export const TRACKS_ENDPOINT = '/tracks'
+export enum ApiRoutes {
+  tracks = '/tracks',
+  auth = '/auth',
+}

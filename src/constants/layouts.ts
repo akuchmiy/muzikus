@@ -9,7 +9,7 @@ export const Layouts = {
 
 export const NoLayoutPagesRoutes = {
   component: Layouts.no,
-  routes: ['/404'],
+  routes: ['/404', '/auth'],
 }
 
 const allLayoutPages = [NoLayoutPagesRoutes]
