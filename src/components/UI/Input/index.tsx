@@ -18,7 +18,7 @@ const Input = forwardRef<HTMLInputElement, inputPropsWithOnChange>(
     const { label, type, value, ...rest } = props
 
     if (type && !WITH_LABEL_INPUT_TYPES.includes(type))
-      return <input ref={ref} type={type} {...rest} value={value} />
+      return <input ref={ref} type={type} value={value} {...rest} />
 
     const scaledDownLabelStyle = value ? styles['has-text'] : ''
 
@@ -26,7 +26,13 @@ const Input = forwardRef<HTMLInputElement, inputPropsWithOnChange>(
       <>
         <label className={`${styles.label} ${scaledDownLabelStyle}`}>
           <span>{label}</span>
-          <input className={styles.input} ref={ref} type={type} {...rest} />
+          <input
+            className={styles.input}
+            ref={ref}
+            type={type}
+            value={value}
+            {...rest}
+          />
         </label>
       </>
     )
