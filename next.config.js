@@ -6,6 +6,9 @@ module.exports = {
   eslint: {
     dirs: ['src'],
   },
+  images: {
+    domains: ['localhost'],
+  },
   webpack: (config) => {
     config.resolve.alias = Object.assign({}, config.resolve.alias, {
       Constants: path.resolve(__dirname, 'src/constants'),

@@ -31,3 +31,16 @@
 .button.large {
     font-size: 1.5em;
 }
+
+.button.reverse {
+    background-color: var(--clr-text-primary);
+    box-shadow: 0 0 10px var(--clr-text-primary);
+    color: var(--clr-bg-primary);
+}
+
+.button.reverse:hover,
+.button.reverse:focus {
+    background-color: transparent;
+    box-shadow: 0 0 0 var(--clr-text-primary);
+    color: var(--clr-text-primary);
+}

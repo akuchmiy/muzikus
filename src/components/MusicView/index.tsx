@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 import { TrackOnly } from 'Models/Track'
+import List from 'Components/utility/List'
 import apiService from 'Services/api'
+import TracksList from 'Components/Lists/TracksList'
 
 const MusicView: FC = () => {
   const [tracks, setTracks] = useState<TrackOnly[]>([])
@@ -12,7 +14,11 @@ const MusicView: FC = () => {
     })()
   }, [])
 
-  return <span>{JSON.stringify(tracks)}</span>
+  return (
+    <>
+      <TracksList tracks={tracks} />
+    </>
+  )
 }
 
 export default MusicView

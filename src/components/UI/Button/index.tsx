@@ -9,17 +9,21 @@ export enum ButtonSizes {
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size?: ButtonSizes
+  reversed?: boolean
 }
 
 const Button: FC<ButtonProps> = ({
   children,
   size = ButtonSizes.medium,
   className = '',
+  reversed,
   ...rest
 }) => {
   return (
     <button
-      className={`${styles.button} ${styles[size]} ${className}`}
+      className={`${styles.button} ${styles[size]} ${
+        reversed ? styles.reverse : ''
+      } ${className}`}
       {...rest}
     >
       {children}

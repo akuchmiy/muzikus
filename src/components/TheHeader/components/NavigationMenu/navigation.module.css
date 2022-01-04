@@ -31,11 +31,12 @@
     position: absolute;
     top: 100%;
     right: calc(var(--nav-width) * -1);
+    z-index: 10;
     width: var(--nav-width);
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
 
-    background-color: hsl(var(--hs-bg-secondary), 12%, 0.4);
+    background-color: var(--clr-bg-secondary);
     border-left: 2px solid var(--clr-text-primary);
 
     transition: right 300ms ease;
@@ -43,6 +44,7 @@
 
 @supports (backdrop-filter: blur(10px)) {
     .navigation {
+        background-color: hsl(var(--hs-bg-secondary), 20%, 0.85);
         backdrop-filter: blur(5px);
     }
 }

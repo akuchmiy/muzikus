@@ -1,0 +1,47 @@
+.track {
+    height: 100px;
+    display: flex;
+
+    background-color: hsl(var(--hs-text-secondary), 100%, 0.1);
+    box-shadow: 0 0 5px hsl(var(--hs-text-secondary), 100%, 0.3);;
+}
+
+.image {
+    border: 2px solid var(--clr-text-primary);
+    border-radius: .5em;
+    overflow: hidden;
+
+    margin-right: 2em;
+    flex: 0 0 auto;
+}
+
+.image img {
+    width: 100px;
+    aspect-ratio: 1;
+
+    object-fit: cover;
+}
+
+.description {
+    padding: 1em 0;
+    flex-grow: 1;
+
+    overflow: hidden;
+}
+
+.description .name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    margin: 0;
+}
+
+.play button {
+    display: block;
+    height: 100%;
+    aspect-ratio: 1.2 / 2;
+
+    padding: 0;
+    margin: 0;
+}
