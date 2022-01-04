@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import styles from './navigation.module.css'
-import Repeat from '../../../helpers/Repeat'
+import Repeat from 'Components/utility/Repeat'
 import { NAVIGATION_LINKS } from 'Constants/header'
 import Link from 'next/link'
 

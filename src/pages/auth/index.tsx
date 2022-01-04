@@ -47,8 +47,6 @@ const Auth: NextPage = () => {
       } else {
         await Router.push('/')
       }
-
-      console.log(user)
     } catch (e: any) {
       setError(e.message)
     }
