@@ -9,8 +9,6 @@ interface TrackItemProps {
   track: TrackOnly
 }
 
-const DEFAULT_IMAGE_SIZE = 100
-
 const TrackItem: FC<TrackItemProps> = ({ track }) => {
   const imagePath = `${STATIC_FILES_PATH.images}/${track.id}.${track.picture}`
 
@@ -18,10 +16,10 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
     <section className={styles.track}>
       <div className={styles.image}>
         <Image
+          className={styles.innerImg}
           src={imagePath}
           alt={''}
-          width={DEFAULT_IMAGE_SIZE}
-          height={DEFAULT_IMAGE_SIZE}
+          layout={'fill'}
         />
       </div>
       <div className={styles.description}>

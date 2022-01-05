@@ -7,18 +7,19 @@
 }
 
 .image {
+    position: relative;
+    width: 100px;
     border: 2px solid var(--clr-text-primary);
     border-radius: .5em;
     overflow: hidden;
 
     margin-right: 2em;
     flex: 0 0 auto;
+
+    user-select: none;
 }
 
-.image img {
-    width: 100px;
-    aspect-ratio: 1;
-
+.innerImg {
     object-fit: cover;
 }
 
