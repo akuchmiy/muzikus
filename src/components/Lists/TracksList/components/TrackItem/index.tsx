@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import Image from 'next/image'
 import { TrackOnly } from 'Models/Track'
-import { STATIC_FILES_PATH } from 'Constants/api'
 import Button from 'Components/UI/Button'
 import styles from './track.module.css'
+import FileService from 'Services/file'
 
 interface TrackItemProps {
   track: TrackOnly
 }
 
 const TrackItem: FC<TrackItemProps> = ({ track }) => {
-  const imagePath = `${STATIC_FILES_PATH.images}/${track.id}.${track.picture}`
+  const imagePath = FileService.getStaticImagePath(track.id, track.picture)
 
   return (
     <section className={styles.track}>

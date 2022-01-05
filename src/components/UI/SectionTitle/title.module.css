@@ -1,0 +1,18 @@
+
+.title {
+    display: block;
+    position: relative;
+
+    margin: 2rem 0 0;
+    background-color: var(--clr-text-primary);
+    color: var(--clr-bg-secondary);
+    padding-left: 2em;
+
+    width: 100%;
+
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.title + * {
+    margin-top: 2rem;
+}

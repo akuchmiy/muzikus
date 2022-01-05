@@ -1,5 +1,6 @@
 export enum ApiRoutes {
   tracks = '/tracks',
+  bands = '/bands',
   auth = '/auth',
 }
 

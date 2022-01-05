@@ -1,0 +1,31 @@
+
+.band {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 150px;
+
+    text-align: center;
+}
+
+.image {
+    margin: 0 auto 1em;
+    aspect-ratio: 1 / 1;
+    flex: 1 1 auto;
+    position: relative;
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.innerImg {
+    object-fit: cover;
+}
+
+.name {
+    font-size: 1.1em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
