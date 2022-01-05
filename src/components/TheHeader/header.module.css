@@ -1,11 +1,17 @@
 
 .header {
     --gap: 1em;
-    position: relative;
+    position: fixed;
+    z-index: 100;
+    background-color: var(--clr-bg-secondary);
+
+    width: 100%;
+    height: var(--header-height);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--header-height);
+
     padding: 10px;
     border-bottom: 2px solid var(--clr-text-primary);
     gap: var(--gap);
