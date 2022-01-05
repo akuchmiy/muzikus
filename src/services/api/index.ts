@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios'
 import TrackService from './trackService'
 import { ApiRoutes } from 'Constants/api'
 import AuthService from 'Services/api/authService'
+import BandService from 'Services/api/bandService'
 import Router from 'next/router'
 
 export const defaultApiInstance = axios.create({
@@ -16,6 +17,7 @@ export const authApiInstance = axios.create({
 
 const apiService = {
   tracks: new TrackService(defaultApiInstance, ApiRoutes.tracks),
+  bands: new BandService(defaultApiInstance, ApiRoutes.bands),
   auth: new AuthService(authApiInstance, ApiRoutes.auth),
 }
 
