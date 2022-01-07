@@ -1,22 +1,24 @@
-import { FC, useEffect, useState } from 'react'
-import { TrackOnly } from 'Models/Track'
-import List from 'Components/utility/List'
-import apiService from 'Services/api'
+import { FC } from 'react'
 import TracksList from 'Components/Lists/TracksList'
+import BandsList from 'Components/Lists/BandsList'
+import SectionTitle from 'Components/UI/SectionTitle'
+import useBands from 'Hooks/useBands'
+import useTracks from 'Hooks/useTracks'
 
 const MusicView: FC = () => {
-  const [tracks, setTracks] = useState<TrackOnly[]>([])
-
-  useEffect(() => {
-    ;(async function fetchTracks() {
-      const tracks = await apiService.tracks.findAll()
-      setTracks(tracks.data)
-    })()
-  }, [])
+  const [tracks] = useTracks()
+  const [bands] = useBands()
 
   return (
     <>
-      <TracksList tracks={tracks} />
+      <div>
+        <SectionTitle tag={'h2'}>Bands</SectionTitle>
+        <BandsList bands={bands} />
+      </div>
+      <div>
+        <SectionTitle tag={'h2'}>Tracks</SectionTitle>
+        <TracksList tracks={tracks} />
+      </div>
     </>
   )
 }
