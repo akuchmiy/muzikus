@@ -5,6 +5,7 @@ class AuthService {
   constructor(private axiosInstance: AxiosInstance, private authRoute: string) {
     this.register = this.register.bind(this)
     this.login = this.login.bind(this)
+    this.refresh = this.refresh.bind(this)
   }
 
   public async register(user: UserDto): Promise<User> {

@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios'
-import TrackService from './trackService'
 import { ApiRoutes } from 'Constants/api'
+import TrackService from './trackService'
 import AuthService from 'Services/api/authService'
 import BandService from 'Services/api/bandService'
 import Router from 'next/router'
@@ -32,7 +32,7 @@ defaultApiInstance.interceptors.request.use((config) => {
 
 defaultApiInstance.interceptors.response.use(
   (response) => response,
-  async function (error: AxiosError) {
+  async (error: AxiosError) => {
     const originalRequestConfig = error.config
 
     if (error.response?.status === 401) {

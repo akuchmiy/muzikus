@@ -5,7 +5,10 @@ class TrackService {
   constructor(
     private axiosInstance: AxiosInstance,
     private trackRoute: string
-  ) {}
+  ) {
+    this.findAll = this.findAll.bind(this)
+    this.findOne = this.findOne.bind(this)
+  }
 
   public async findAll(): Promise<AxiosResponse<TrackOnly[]>> {
     return this.axiosInstance.get<TrackOnly[]>(`${this.trackRoute}`)
