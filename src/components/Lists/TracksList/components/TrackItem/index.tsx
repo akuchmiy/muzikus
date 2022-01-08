@@ -10,7 +10,7 @@ interface TrackItemProps {
 }
 
 const TrackItem: FC<TrackItemProps> = ({ track }) => {
-  const imagePath = FileService.getStaticImagePath(track.id, track.picture)
+  const imagePath = FileService.getStaticImagePath(track.picture)
 
   return (
     <section className={styles.track}>
@@ -20,6 +20,8 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
           src={imagePath}
           alt={''}
           layout={'fill'}
+          sizes={'50vw'}
+          unoptimized={true}
         />
       </div>
       <div className={styles.description}>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import { BandOnly } from 'Models/Band'
 import FileService from 'Services/file'
@@ -9,7 +9,7 @@ interface BandItemProps {
 }
 
 const BandItem: FC<BandItemProps> = ({ band }) => {
-  const imagePath = FileService.getStaticImagePath(band.id, band.picture)
+  const imagePath = FileService.getStaticImagePath(band.picture)
 
   return (
     <section className={styles.band}>
@@ -19,6 +19,8 @@ const BandItem: FC<BandItemProps> = ({ band }) => {
           src={imagePath}
           alt={''}
           layout={'fill'}
+          sizes={'50vw'}
+          unoptimized={true}
         />
       </div>
       <span className={`${styles.name} font-marker`}>{band.name}</span>

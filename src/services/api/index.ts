@@ -39,7 +39,7 @@ defaultApiInstance.interceptors.response.use(
       try {
         await apiService.auth.refresh()
       } catch (e: any) {
-        Router.push('/auth')
+        await Router.push('/auth')
 
         return { data: null }
       }
