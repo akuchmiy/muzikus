@@ -32,12 +32,12 @@ export default function useFetch<T>(
       try {
         const data = await fetchData()
         setData(data.data)
-        setIsLoading(false)
       } catch (e) {
         // TODO - set global error state
         setIsError(true)
-        setIsLoading(false)
       }
+
+      setIsLoading(false)
     })()
   }, [fetchData])
 

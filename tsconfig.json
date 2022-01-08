@@ -14,12 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "strictNullChecks": true,
     "paths": {
         "Constants/*": ["./src/constants/*"],
         "Services/*": ["./src/services/*"],
         "Models/*": ["./src/models/*"],
         "Components/*": ["./src/components/*"],
-        "Hooks/*": ["./src/hooks/*"],
+        "Hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
