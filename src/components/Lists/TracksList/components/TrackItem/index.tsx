@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { TrackOnly } from 'Models/Track'
+import { FullTrack } from 'Models/Track'
 import Image from 'next/image'
 import Button from 'Components/UI/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +8,7 @@ import styles from './track.module.css'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 interface TrackItemProps {
-  track: TrackOnly
+  track: FullTrack
 }
 
 const TrackItem: FC<TrackItemProps> = ({ track }) => {
@@ -28,7 +28,7 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
       </div>
       <div className={styles.description}>
         <h4 className={styles.name}>{track.name}</h4>
-        <div>{track.text}</div>
+        <div>{track.album.band.name}</div>
       </div>
       <div className={styles.play}>
         <Button reversed>

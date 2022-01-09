@@ -1,19 +1,28 @@
 .track {
-    height: 100px;
+    --track-height: 70px;
+    --track-spacing: 1em;
+    height: var(--track-height);
     display: flex;
 
     background-color: hsl(var(--hs-text-secondary), 100%, 0.1);
     box-shadow: 0 0 5px hsl(var(--hs-text-secondary), 100%, 0.3);;
 }
 
+@media (min-width: 769px) {
+    .track {
+        --track-height: 100px;
+        --track-spacing: 2em;
+    }
+}
+
 .image {
     position: relative;
-    width: 100px;
     border: 2px solid var(--clr-text-primary);
+    width: var(--track-height);
     border-radius: .5em;
     overflow: hidden;
 
-    margin-right: 2em;
+    margin-right: var(--track-spacing);
     flex: 0 0 auto;
 
     user-select: none;
@@ -24,7 +33,7 @@
 }
 
 .description {
-    padding: 1em 0;
+    padding: calc(var(--track-spacing) * 0.5) 0;
     flex-grow: 1;
 
     overflow: hidden;

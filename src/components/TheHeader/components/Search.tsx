@@ -1,7 +1,9 @@
 import { FC, FormEvent } from 'react'
-import Input from '../../UI/Input'
-import Button, { ButtonSizes } from '../../UI/Button'
-import useInput from '../../../hooks/useInput'
+import Input from 'Components/UI/Input'
+import Button, { ButtonSizes } from 'Components/UI/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import useInput from 'Hooks/useInput'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 interface SearchProps {
   className: string
@@ -24,7 +26,9 @@ const Search: FC<SearchProps> = ({ className }) => {
         label={'Search music'}
         type={'text'}
       />
-      <Button size={ButtonSizes.medium}>Search</Button>
+      <Button size={ButtonSizes.medium} aria-label={'Search'}>
+        <FontAwesomeIcon icon={faSearch} />
+      </Button>
     </form>
   )
 }

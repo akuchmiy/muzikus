@@ -1,4 +1,4 @@
-import { AlbumOnly } from './Album'
+import { AlbumWithoutTracks } from './Album'
 
 export interface TrackOnly {
   id: string
@@ -10,5 +10,5 @@ export interface TrackOnly {
 }
 
 export type FullTrack = TrackOnly & {
-  album: AlbumOnly
+  album: AlbumWithoutTracks
 }
