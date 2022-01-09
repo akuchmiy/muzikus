@@ -1,9 +1,11 @@
 import { FC } from 'react'
-import Image from 'next/image'
 import { TrackOnly } from 'Models/Track'
+import Image from 'next/image'
 import Button from 'Components/UI/Button'
-import styles from './track.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import FileService from 'Services/file'
+import styles from './track.module.css'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 interface TrackItemProps {
   track: TrackOnly
@@ -29,7 +31,9 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
         <div>{track.text}</div>
       </div>
       <div className={styles.play}>
-        <Button reversed>Play</Button>
+        <Button reversed>
+          <FontAwesomeIcon icon={faPlay} />
+        </Button>
       </div>
     </section>
   )
