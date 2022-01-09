@@ -5,8 +5,11 @@
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
+
     margin: var(--header-height) auto 0;
-    padding: 5vh 10px 0;
+    padding: 5vh 10px 5vh;
     width: min(90%, 1170px);
     flex-grow: 1;
 }

@@ -1,0 +1,56 @@
+
+.loader {
+    position: relative;
+    flex: 1 1 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    --load-animation-duration: 3s;
+    --loader-size: 150px;
+}
+
+.small {
+    position: absolute;
+    width: calc(var(--loader-size) * 0.7);
+    aspect-ratio: 1;
+
+    background-color: var(--clr-text-primary);
+    filter: brightness(1.2);
+
+    animation: spin-left var(--load-animation-duration) ease-out infinite alternate;
+}
+
+.medium{
+    position: absolute;
+    width: var(--loader-size);
+    aspect-ratio: 1;
+
+    background-color: var(--clr-text-primary);
+
+    animation: spin-right var(--load-animation-duration) ease-in infinite alternate;
+}
+
+.large {
+    position: absolute;
+    width: calc(var(--loader-size) * 1.4);
+    aspect-ratio: 1;
+
+    background-color: var(--clr-text-primary);
+    filter: brightness(0.8);
+
+    animation: spin-left var(--load-animation-duration) ease-in-out infinite alternate;
+}
+
+@keyframes spin-right {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-left {
+    to {
+        transform: rotate(-360deg);
+    }
+}
