@@ -1,11 +1,11 @@
 import apiService from 'Services/api'
 import useFetch from 'Hooks/useFetch'
-import { TrackOnly } from 'Models/Track'
+import { FullTrack } from 'Models/Track'
 
 export default function useTracks(
   nameMatch?: string
-): [TrackOnly[], boolean, boolean] {
-  const [tracks, isLoading, isError] = useFetch<TrackOnly[]>(
+): [FullTrack[], boolean, boolean] {
+  const [tracks, isLoading, isError] = useFetch<FullTrack[]>(
     [],
     apiService.tracks.findAll,
     [nameMatch]

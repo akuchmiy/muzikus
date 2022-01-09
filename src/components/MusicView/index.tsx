@@ -1,5 +1,4 @@
 import { FC, useMemo } from 'react'
-import Image from 'next/image'
 import TracksList from 'Components/Lists/TracksList'
 import BandsList from 'Components/Lists/BandsList'
 import SectionTitle from 'Components/UI/SectionTitle'

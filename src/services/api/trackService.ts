@@ -1,5 +1,5 @@
 import { AxiosInstance, AxiosResponse } from 'axios'
-import { FullTrack, TrackOnly } from 'Models/Track'
+import { FullTrack } from 'Models/Track'
 
 class TrackService {
   constructor(
@@ -10,8 +10,8 @@ class TrackService {
     this.findOne = this.findOne.bind(this)
   }
 
-  public async findAll(): Promise<AxiosResponse<TrackOnly[]>> {
-    return this.axiosInstance.get<TrackOnly[]>(`${this.trackRoute}`)
+  public async findAll(): Promise<AxiosResponse<FullTrack[]>> {
+    return this.axiosInstance.get<FullTrack[]>(`${this.trackRoute}`)
   }
 
   public async findOne(trackId: string): Promise<AxiosResponse<FullTrack>> {
