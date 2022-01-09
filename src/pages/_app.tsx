@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { getPageLayout } from 'Constants/layouts'
+import { withHydrate } from 'effector-next'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -14,4 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+const enhance = withHydrate()
+
+export default enhance(MyApp)

@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const path = require('path')
 
-module.exports = {
+const { withEffectorReactAliases } = require('effector-next/tools')
+
+const enhance = withEffectorReactAliases()
+
+module.exports = enhance({
   reactStrictMode: true,
   eslint: {
     dirs: ['src'],
@@ -19,4 +23,4 @@ module.exports = {
     })
     return config
   },
-}
+})
