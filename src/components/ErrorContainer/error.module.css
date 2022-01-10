@@ -1,0 +1,45 @@
+
+.error {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 2em;
+
+    display: flex;
+    align-items: center;
+
+    width: 320px;
+    padding: 1em;
+    border-radius: 1em;
+
+    background-color: rgb(217, 83, 79);
+    color: var(--clr-bg-primary);
+    box-shadow: 0 0 20px black;
+
+    transform: translateX(-50%);
+    transition: top 500ms ease;
+}
+
+.error.hidden {
+    top: -10em;
+}
+
+.icon {
+    font-size: 2em;
+    margin-right: .5em;
+    left: .5em;
+
+    transition: left 300ms ease;
+}
+
+.error.hidden .icon {
+    position: relative;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.text {
+    font-size: 1.5em;
+    line-height: 1;
+}

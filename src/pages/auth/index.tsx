@@ -5,9 +5,10 @@ import Input from 'Components/UI/Input'
 import useInput from 'Hooks/useInput'
 import Button from 'Components/UI/Button'
 import Router from 'next/router'
-import { useEvent, useStore } from 'effector-react'
+import { useEvent } from 'effector-react'
 import apiService from 'Services/api'
 import { setUser } from 'Store/user'
+import { setError } from 'Store/error'
 import styles from './auth.module.css'
 
 enum AuthType {
@@ -29,13 +30,12 @@ const Auth: NextPage = () => {
   const [authType, setAuthType] = useState<AuthType>(AuthType.register)
   const [email, setEmail, onEmailChange] = useInput('')
   const [password, setPassword, onPasswordChange] = useInput('')
-  const [error, setError] = useInput('')
   const setUserStore = useEvent(setUser)
-  // TODO: make global state error and error component
+  const setErrorStore = useEvent(setError)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setError('')
+    setErrorStore('')
 
     const authFunction = AuthFunctions[authType]
     try {
@@ -45,13 +45,13 @@ const Auth: NextPage = () => {
       if (authType === AuthType.register) {
         setEmail('')
         setPassword('')
-        setError('Please confirm your email and continue')
+        setErrorStore('Please confirm your email and continue')
         setAuthType(AuthType.login)
       } else {
         await Router.push('/')
       }
     } catch (e: any) {
-      setError(e.message)
+      setErrorStore(e.message)
     }
   }
 
@@ -75,7 +75,6 @@ const Auth: NextPage = () => {
               </button>
             )}
           </h4>
-          {error && <h4>{error}</h4>}
         </div>
         <form className={styles.right} onSubmit={handleSubmit}>
           <div>
