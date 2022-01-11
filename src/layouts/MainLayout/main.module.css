@@ -10,6 +10,6 @@
 
     margin: var(--header-height) auto 0;
     padding: 5vh 10px 5vh;
-    width: min(90%, 1170px);
+    width: var(--container-width);
     flex-grow: 1;
 }

@@ -1,0 +1,73 @@
+
+.player {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+
+    height: 70px;
+    width: 100%;
+    padding: .5em 10px;
+
+    border-top: 3px solid var(--clr-text-primary);
+    background-color: var(--clr-bg-primary);
+    opacity: 1;
+
+    transition: height 300ms ease, opacity 200ms ease-in;
+}
+
+/*.player:is(:hover, :focus-within) {*/
+/*    height: 90px;*/
+/*}*/
+
+.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: var(--container-width);
+    height: 100%;
+}
+
+.image {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1;
+    margin-right: 2em;
+
+    border-radius: 2em;
+    border: 1px solid var(--clr-text-primary);
+
+    overflow: hidden;
+}
+
+.container > div:nth-child(2) {
+    flex: 1 1 auto;
+}
+
+.description {
+    line-height: 1;
+}
+
+.description div:first-child {
+    margin-bottom: .5em;
+}
+
+.description span {
+    display: block;
+}
+
+.slider {
+    /*max-width: 340px;*/
+}
+
+.controls button {
+    display: block;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    outline: none;
+}

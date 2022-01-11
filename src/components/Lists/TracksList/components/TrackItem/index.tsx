@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import FileService from 'Services/file'
 import styles from './track.module.css'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { setTrack } from 'Store/track'
 
 interface TrackItemProps {
   track: FullTrack
@@ -13,6 +14,10 @@ interface TrackItemProps {
 
 const TrackItem: FC<TrackItemProps> = ({ track }) => {
   const imagePath = FileService.getStaticImagePath(track.picture)
+
+  function setPlayerTrack() {
+    setTrack(track)
+  }
 
   return (
     <section className={styles.track}>
@@ -31,7 +36,7 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
         <div>{track.album.band.name}</div>
       </div>
       <div className={styles.play}>
-        <Button reversed>
+        <Button onClick={setPlayerTrack} reversed>
           <FontAwesomeIcon icon={faPlay} />
         </Button>
       </div>
