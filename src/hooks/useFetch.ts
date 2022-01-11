@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { defaultApiInstance } from 'Services/api'
 import { AxiosResponse } from 'axios'
+import { useEvent } from 'effector-react'
+import { setError } from 'Store/error'
 
 type Response<T> = AxiosResponse<T> | Promise<AxiosResponse<T>>
 
@@ -17,6 +19,7 @@ export default function useFetch<T>(
   const [data, setData] = useState<T>(initialValue)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isError, setIsError] = useState<boolean>(false)
+  const setErrorState = useEvent(setError)
 
   const jsonParams = JSON.stringify(functionParams)
   const fetchData = useCallback(() => {
@@ -33,13 +36,13 @@ export default function useFetch<T>(
         const data = await fetchData()
         setData(data.data)
       } catch (e) {
-        // TODO - set global error state
+        if (e instanceof Error) setErrorState(e.message)
         setIsError(true)
       }
 
       setIsLoading(false)
     })()
-  }, [fetchData])
+  }, [fetchData, setErrorState])
 
   return [data, isLoading, isError]
 }
