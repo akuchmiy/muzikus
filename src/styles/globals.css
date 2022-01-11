@@ -49,6 +49,14 @@ a {
   text-decoration: none;
 }
 
+.even-columns {
+  display: flex;
+}
+
+.even-columns > * {
+  flex-basis: 100%;
+}
+
 *,
 *::after,
 *::before {

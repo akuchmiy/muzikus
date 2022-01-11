@@ -11,4 +11,5 @@
     --hs-text-secondary: 84, 50%;
 
     --header-height: 60px;
+    --container-width: min(90%, 1170px);
 }
