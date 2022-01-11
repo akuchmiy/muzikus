@@ -19,7 +19,7 @@ export default function useFetch<T>(
   const [data, setData] = useState<T>(initialValue)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isError, setIsError] = useState<boolean>(false)
-  const setErrorState = useEvent(setError)
+  const setErrorFn = useEvent(setError)
 
   const jsonParams = JSON.stringify(functionParams)
   const fetchData = useCallback(() => {
@@ -36,13 +36,13 @@ export default function useFetch<T>(
         const data = await fetchData()
         setData(data.data)
       } catch (e) {
-        if (e instanceof Error) setErrorState(e.message)
+        if (e instanceof Error) setErrorFn(e.message)
         setIsError(true)
       }
 
       setIsLoading(false)
     })()
-  }, [fetchData, setErrorState])
+  }, [fetchData, setErrorFn])
 
   return [data, isLoading, isError]
 }

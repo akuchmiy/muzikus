@@ -30,28 +30,27 @@ const Auth: NextPage = () => {
   const [authType, setAuthType] = useState<AuthType>(AuthType.register)
   const [email, setEmail, onEmailChange] = useInput('')
   const [password, setPassword, onPasswordChange] = useInput('')
-  const setUserStore = useEvent(setUser)
-  const setErrorStore = useEvent(setError)
+  const [setUserFn, setErrorFn] = useEvent([setUser, setError])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setErrorStore('')
+    setErrorFn('')
 
     const authFunction = AuthFunctions[authType]
     try {
       const user = await authFunction({ email, password })
-      setUserStore(user)
+      setUserFn(user)
 
       if (authType === AuthType.register) {
         setEmail('')
         setPassword('')
-        setErrorStore('Please confirm your email and continue')
+        setErrorFn('Please confirm your email and continue')
         setAuthType(AuthType.login)
       } else {
         await Router.push('/')
       }
     } catch (e: any) {
-      setErrorStore(e.message)
+      setErrorFn(e.message)
     }
   }
 
